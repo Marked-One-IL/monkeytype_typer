@@ -1,0 +1,14 @@
+# Ignore everything.
+*
+
+# Keep those files.
+!/LICENSE
+!/README.md
+!/.gitignore
+!/requirements.txt
+
+# Keep those directories.
+!/src/
+
+# Keep the contents of those directories.
+!/src/**
