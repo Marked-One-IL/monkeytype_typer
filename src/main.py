@@ -4,9 +4,8 @@ from selenium.webdriver.common.keys import Keys
 import os
 
 driver = webdriver.Chrome()
-driver.get("https://monkeytype.com/")
 
-def type_current_word(element):
+def type_current_word(input_element):
     global driver
 
     # When getting the word list, the website sometimes changes it,
@@ -18,13 +17,16 @@ def type_current_word(element):
         word.setAttribute("used", "");
         return word.textContent;
     """)
-    element.send_keys(word + Keys.SPACE)
+    input_element.send_keys(word + Keys.SPACE)
 
 def main():
+    driver.get("https://monkeytype.com/")
+    input_element = driver.find_element(By.ID, "wordsInput")
+
     try:
-        element = driver.find_element(By.ID, "wordsInput")
         while True:
-            type_current_word(element)
+            type_current_word(input_element)
+            
     except:
         pass
 
